@@ -1,5 +1,5 @@
 {
-  "name": "RichardTianke/laravel-wechat-jssdk",
+  "name": "richardtianke/laravel-wechat-jssdk",
   "type": "library",
   "description": "Laravel Wechat JS-SDK",
   "require": {
