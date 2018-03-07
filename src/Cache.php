@@ -12,7 +12,7 @@ class Cache {
      * @return string
      */
     public function get($key) {
-        return trim(file_get_contents($key));
+        return trim(file_get_contents(dirname(__FILE__) . '/' . $key));
     }
 
     /**
@@ -22,7 +22,7 @@ class Cache {
      * @param $value
      */
     public function put($key, $value) {
-        $file = fopen($key, "w");
+        $file = fopen(dirname(__FILE__) . '/' . $key, "w");
         fwrite($file, $value);
         fclose($file);
     }

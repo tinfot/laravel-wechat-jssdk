@@ -8,6 +8,7 @@ class AccessToken {
     private $app_secret;
     private $base_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&";
     private $url;
+    private $key = "access_token.json";
 
     /**
      * AccessToken constructor.
@@ -35,17 +36,18 @@ class AccessToken {
      */
     public function get() {
         $cache = new Cache();
-        $data  = json_decode($cache->get('access_token.json'));
+        $data  = json_decode($cache->get($this->key));
 
-        if ($data->expire_time < time()) {
+        if ($data->expire_time > time()) {
             $access_token = $data->access_token;
         } else {
             $http         = new Http($this->url);
-            $access_token = json_decode($http->send());
+            $result       = json_decode($http->send());
+            $access_token = $result->access_token;
             if ($access_token) {
                 $data->expire_time  = time() + 7000;
                 $data->access_token = $access_token;
-                $cache->put("access_token.json", json_encode($data));
+                $cache->put($this->key, json_encode($data));
             }
         }
         return $access_token;

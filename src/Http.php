@@ -28,9 +28,9 @@ class Http {
     public function send() {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_TIMEOUT, 500);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 50);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl, CURLOPT_URL, $this->url);
         $result = curl_exec($curl);
         curl_close($curl);
