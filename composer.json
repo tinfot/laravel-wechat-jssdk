@@ -5,6 +5,15 @@
   "require": {
     "php": ">=5.6.9"
   },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Richard Tian",
+      "email": "richard_tianke@qq.com",
+      "homepage": "http://richard.lol",
+      "role": "Developer"
+    }
+  ],
   "repositories": [
     {
       "type": "git",
