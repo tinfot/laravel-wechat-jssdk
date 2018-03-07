@@ -1,9 +1,17 @@
 {
   "name": "richardtianke/laravel-wechat-jssdk",
-  "type": "library",
   "description": "Laravel Wechat JS-SDK",
+  "keywords": [
+    "laravel",
+    "wechat",
+    "jssdk",
+    "laravel-wechat-jssdk"
+  ],
+  "homepage": "https://github.com/richardtianke/laravel-wechat-jssdk",
+  "type": "library",
   "require": {
-    "php": ">=5.6.9"
+    "php": ">=5.6.0",
+    "laravel/framework": ">=5.4"
   },
   "license": "MIT",
   "authors": [
@@ -24,7 +32,17 @@
   ],
   "autoload": {
     "psr-4": {
-      "WechatJSSDK\\": "src/"
+      "RichardTianke\\Wechat\\JSSDK\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "RichardTianke\\Wechat\\WechatServiceProvider"
+      ],
+      "aliases": {
+        "GoogleCalendar": "Spatie\\GoogleCalendar\\GoogleCalendarFacade"
+      }
     }
   }
 }
