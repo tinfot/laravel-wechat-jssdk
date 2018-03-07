@@ -1,0 +1,19 @@
+{
+  "name": "RichardTianke/laravel-wechat-jssdk",
+  "type": "library",
+  "description": "Laravel Wechat JS-SDK",
+  "require": {
+    "php": ">=5.6.9"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/RichardTianke/laravel-wechat-jssdk"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "WechatJSSDK\\": "src/"
+    }
+  }
+}
