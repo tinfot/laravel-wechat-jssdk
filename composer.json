@@ -8,7 +8,7 @@
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/RichardTianke/laravel-wechat-jssdk"
+      "url": "https://github.com/richardtianke/laravel-wechat-jssdk"
     }
   ],
   "autoload": {
