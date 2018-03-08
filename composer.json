@@ -1,11 +1,17 @@
 {
-  "name": "richardtianke/laravel-wechat-jssdk",
+  "name": "tinfot/laravel-wechat-jssdk",
   "type": "library",
   "description": "Laravel Wechat JS-SDK",
-  "require": {
-    "php": ">=5.6.9"
-  },
+  "homepage": "https://github.com/tinfot/laravel-wechat-jssdk",
   "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "keywords": [
+    "laravel",
+    "wechat",
+    "jssdk",
+    "laravel-wechat-jssdk"
+  ],
   "authors": [
     {
       "name": "Richard Tian",
@@ -14,17 +20,25 @@
       "role": "Developer"
     }
   ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/richardtianke/laravel-wechat-jssdk"
+      "url": "https://github.com/tinfot/laravel-wechat-jssdk"
     }
   ],
   "autoload": {
     "psr-4": {
-      "WechatJSSDK\\": "src/"
+      "Tinfot\\": "src/"
     }
+  },
+  "require": {
+    "php": ">=5.6.4",
+    "laravel/framework": "5.4.*",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "require-dev": {
+    "mockery/mockery": "~0.9",
+    "phpunit/phpunit": "~4.8",
+    "ext-curl": "*"
   }
 }
