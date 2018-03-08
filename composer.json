@@ -1,20 +1,17 @@
 {
-  "name": "itianke/laravel-wechat-jssdk",
+  "name": "tinfot/laravel-wechat-jssdk",
+  "type": "library",
   "description": "Laravel Wechat JS-SDK",
+  "homepage": "https://github.com/tinfot/laravel-wechat-jssdk",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "keywords": [
     "laravel",
     "wechat",
     "jssdk",
     "laravel-wechat-jssdk"
   ],
-  "homepage": "https://github.com/itianke/laravel-wechat-jssdk",
-  "type": "library",
-  "require": {
-    "php": ">=5.6.0",
-    "laravel/framework": ">=5.4",
-    "nesbot/carbon": "1.23.0"
-  },
-  "license": "MIT",
   "authors": [
     {
       "name": "Richard Tian",
@@ -23,27 +20,25 @@
       "role": "Developer"
     }
   ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/itianke/laravel-wechat-jssdk"
+      "url": "https://github.com/tinfot/laravel-wechat-jssdk"
     }
   ],
   "autoload": {
     "psr-4": {
-      "RichardTianke\\Wechat\\JSSDK\\": "src/"
+      "Tinfot\\": "src/"
     }
   },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "ITianKe\\Wechat\\WechatServiceProvider"
-      ],
-      "aliases": {
-        "ITianKe": "ITianKe\\Wechat\\WechatFacade"
-      }
-    }
+  "require": {
+    "php": ">=5.6.4",
+    "laravel/framework": "^5.4",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "require-dev": {
+    "mockery/mockery": "~0.9",
+    "phpunit/phpunit": "~4.8",
+    "ext-curl": "*"
   }
 }

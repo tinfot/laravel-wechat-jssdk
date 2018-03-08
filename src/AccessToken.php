@@ -1,14 +1,20 @@
 <?php
 
-namespace WechatJSSDK;
+namespace Tinfot;
+
+use Cache;
+use Carbon\Carbon;
+use GuzzleHttp\Client;
 
 class AccessToken {
 
+    private $grant_type = 'client_credential';
     private $app_id;
     private $app_secret;
-    private $base_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&";
+    private $base_url = 'https://api.weixin.qq.com/cgi-bin/token';
     private $url;
-    private $key = "access_token.json";
+    private $token_key = 'tinfot:';
+
 
     /**
      * AccessToken constructor.
@@ -19,6 +25,7 @@ class AccessToken {
     public function __construct($app_id, $app_secret) {
         $this->app_id     = $app_id;
         $this->app_secret = $app_secret;
+        $this->token_key  .= $app_id . ':access_token';
         $this->setUrl();
     }
 
@@ -26,7 +33,7 @@ class AccessToken {
      * Set url
      */
     private function setUrl() {
-        $this->url = $this->base_url . "appid={$this->app_id}&secret={$this->app_secret}";
+        $this->url = "{$this->base_url}?grant_type={$this->grant_type}&appid={$this->app_id}&secret={$this->app_secret}";
     }
 
     /**
@@ -35,22 +42,19 @@ class AccessToken {
      * @return mixed
      */
     public function get() {
-        $cache = new Cache();
-        $data  = json_decode($cache->get($this->key));
-
-        if ($data->expire_time > time()) {
-            $access_token = $data->access_token;
-        } else {
-            $http         = new Http($this->url);
-            $result       = json_decode($http->send());
-            $access_token = $result->access_token;
-            if ($access_token) {
-                $data->expire_time  = time() + 7000;
-                $data->access_token = $access_token;
-                $cache->put($this->key, json_encode($data));
-            }
+        if (Cache::has($this->token_key)) {
+            return Cache::get($this->token_key);
         }
-        return $access_token;
+        $client = new Client();
+        $resule = $client->request('GET', $this->url);
+        if ($resule->getStatusCode() == 200) {
+            $data         = $resule->getBody();
+            $access_token = isset($data->access_token) ? $data->access_token : '';
+            Cache::put($this->token_key, $access_token, Carbon::now()->addMinutes(100));
+            return $access_token;
+        } else {
+            return false;
+        }
     }
 
 }
