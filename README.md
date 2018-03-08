@@ -13,7 +13,7 @@
 Require this package in your composer.json and update composer. 
 
 ```php
-composer require richardtianke/laravel-wechat-jssdk:dev-master
+composer require tinfot/laravel-wechat-jssdk:dev-master
 ```
 
 In Laravel 5.5 or higher, this package will be automatically discovered and you can safely skip the following two steps.
@@ -21,13 +21,21 @@ In Laravel 5.5 or higher, this package will be automatically discovered and you 
 If using Laravel 5.4 or lower, after updating composer, add the ServiceProvider to the providers array in config/app.php
 
 ```php
-RichardTianke\Wechat\WechatServiceProvider::class,
+Tinfot\Wechat\WechatServiceProvider::class,
 ```
 
 
 You can use the facade for shorter code; if using Laravel 5.3 or lower, add this to your aliases:
 ```php
-'JSSDK' => RichardTianke\Wechat\Facades\JSSDK::class,
+'JSSDK' => Tinfot\Wechat\Facades\JSSDK::class,
+```
+
+# Usage
+
+```php
+$model = new \Tinfot\Wechat(config('wechat.app_id'), config('wechat.app_secret'), $request->input('url'));
+$model->setSignPackage();
+return $model->getSignPackage();
 ```
 
 # Support

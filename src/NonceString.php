@@ -6,33 +6,43 @@ namespace Tinfot;
  * Class NonceString
  * @package WechatJSSDK
  *
- * @property string $string
+ * @property integer $length
  * @property string $character
  */
 class NonceString {
 
-    private $string;
     private $character = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    private $length = 16;
 
     /**
-     * Set nonce string
+     * Set nonce string length
      *
-     * @param int $length
+     * @param $length
+     */
+    public function setLength($length) {
+        $this->length = $length;
+    }
+
+    /**
+     * Set nonce string character
+     *
+     * @param $character
+     */
+    public function setCharacter($character) {
+        $this->character = $character;
+    }
+
+    /**
+     * Generate nonce string
      *
      * @return string
      */
-    public function setString($length = 16) {
-        for ($i = 0; $i < $length; $i++) {
-            $this->string .= substr($this->character, mt_rand(0, strlen($this->character) - 1), 1);
+    public function build() {
+        $result = "";
+        for ($i = 0; $i < $this->length; $i++) {
+            $result .= substr($this->character, mt_rand(0, strlen($this->character) - 1), 1);
         }
+        return $result;
     }
 
-    /**
-     * Get nonce string
-     *
-     * @return mixed
-     */
-    public function getString() {
-        return $this->string;
-    }
 }
