@@ -48,8 +48,8 @@ class SignPackage implements SignPackageContract {
 
     public function build() {
         $this->setNonceString();
-        $this->setSignature();
         $this->setString();
+        $this->setSignature();
         $this->setSignPackage();
     }
 
