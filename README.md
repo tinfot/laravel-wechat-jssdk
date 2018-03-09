@@ -3,11 +3,7 @@
 
 ---
 
-[![Latest Stable Version](https://poser.pugx.org/maatwebsite/excel/v/stable.png)](https://packagist.org/packages/richardtianke/laravel-wechat-jssdk) 
-[![Total Downloads](https://poser.pugx.org/maatwebsite/excel/downloads.png)](https://packagist.org/packages/richardtianke/laravel-wechat-jssdk)  
-[![License](https://poser.pugx.org/maatwebsite/excel/license.png)](https://packagist.org/packages/richardtianke/laravel-wechat-jssdk)
-[![Monthly Downloads](https://poser.pugx.org/maatwebsite/excel/d/monthly.png)](https://packagist.org/packages/richardtianke/laravel-wechat-jssdk)
-[![Daily Downloads](https://poser.pugx.org/maatwebsite/excel/d/daily.png)](https://packagist.org/packages/richardtianke/laravel-wechat-jssdk)
+[![License](https://poser.pugx.org/maatwebsite/excel/license.png)](https://packagist.org/packages/tinfot/laravel-wechat-jssdk)
 
 # Installation
 Require this package in your composer.json and update composer. 
